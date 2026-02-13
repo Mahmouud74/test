@@ -57,15 +57,15 @@
             border-radius: 30px 0 0 0;
         }
 
-        .card {
-            position: absolute;
-            background-color: #eae2b7;
-            width: 270px;
-            height: 170px;
-            top: 5px;
-            left: 15px;
-            box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
-        }
+.card {
+    position: absolute;
+    background-color: #eae2b7;
+    width: 270px;
+    height: 170px;
+    top: -90px; /* Changed from 5px to -90px */
+    left: 15px;
+    box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
+}
 
         .card:before {
             content: "";
@@ -259,6 +259,20 @@
                 transform: scaleX(0.85);
             }
         }
+        .card {
+    transition: top 0.6s ease-in-out;
+    top: 90px;
+}
+.card {
+    position: absolute;
+    background-color: #eae2b7;
+    width: 270px;
+    height: 170px;
+    top: -90px; /* This is the "End Point" position */
+    left: 15px;
+    box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
+}
+
     </style>
 </head>
 
@@ -268,7 +282,7 @@
             <div class="envelope"></div>
             <div class="front"></div>
             <div class="card">
-                <div class="text">YASSMINA <br> Happy</br> Valentine's</br> Day!</div>
+                <div class="text">Happy</br> Valentine's</br> Day!</div>
                 <div class="heart"></div>
             </div>
             <div class="hearts">
@@ -285,26 +299,55 @@
 </body>
 
 <script>
+// document.addEventListener('DOMContentLoaded', () => {
+//     const container = document.querySelector('.container');
+//     const cards = document.querySelectorAll('.card');
+//     let currentAnimation = null;
+
+//     // Helper to run animation and clear previous ones (like .stop())
+//     const animateCards = (targetTop) => {
+//         cards.forEach(card => {
+//             // Cancel any ongoing animation to prevent "jumping"
+//             card.getAnimations().forEach(anim => anim.cancel());
+
+//             card.animate(
+//                 [ { top: card.style.top || '0px' }, { top: targetTop } ], 
+//                 { duration: 600, easing: 'ease-in-out', fill: 'forwards' }
+//             );
+//         });
+//     };
+
+//     container.addEventListener('mouseenter', () => animateCards('-90px'));
+//     container.addEventListener('mouseleave', () => animateCards('0px'));
+// });
+// document.addEventListener('DOMContentLoaded', () => {
+//     const container = document.querySelector('.container');
+//     const cards = document.querySelectorAll('.card');
+
+//     const animateCards = (targetTop) => {
+//         cards.forEach(card => {
+//             card.getAnimations().forEach(anim => anim.cancel());
+//             card.animate(
+//                 [ 
+//                     // Use getComputedStyle to ensure smooth transition from current position
+//                     { top: window.getComputedStyle(card).top }, 
+//                     { top: targetTop } 
+//                 ], 
+//                 { duration: 600, easing: 'ease-in-out', fill: 'forwards' }
+//             );
+//         });
+//     };
+
+//     // Card stays/moves UP on hover
+//     container.addEventListener('mouseenter', () => animateCards('-90px'));
+//     // Card moves DOWN when mouse leaves
+//     container.addEventListener('mouseleave', () => animateCards('0px'));
+// });
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const cards = document.querySelectorAll('.card');
-    let currentAnimation = null;
 
-    // Helper to run animation and clear previous ones (like .stop())
-    const animateCards = (targetTop) => {
-        cards.forEach(card => {
-            // Cancel any ongoing animation to prevent "jumping"
-            card.getAnimations().forEach(anim => anim.cancel());
 
-            card.animate(
-                [ { top: card.style.top || '0px' }, { top: targetTop } ], 
-                { duration: 600, easing: 'ease-in-out', fill: 'forwards' }
-            );
-        });
-    };
-
-    container.addEventListener('mouseenter', () => animateCards('-90px'));
-    container.addEventListener('mouseleave', () => animateCards('0px'));
 });
 </script>
 </html>
